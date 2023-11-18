@@ -106,37 +106,37 @@ with tab2:
         st.pyplot(plt)
 
 with tab3:
-    st.title('Dataset')
+    st.subheader('Dataset')
     if st.button('1학기'):
         if st.button('중간고사'):
             if st.button('1학년'):
                 st.dataframe(pd.read_csv('result/1-1-1.csv'))
                 st.download_button('Download', 'result/1-1-1.csv')
-            elif st.button('2학년'):
+            if st.button('2학년'):
                 st.dataframe(pd.read_csv('result/1-1-2.csv'))
                 st.download_button('Download', 'result/1-1-2.csv')
-            elif st.button('3학년'):
+            if st.button('3학년'):
                 st.dataframe(pd.read_csv('result/1-1-3.csv'))
                 st.download_button('Download', 'result/1-1-3.csv')
-        elif st.button('기말고사'):
+        if st.button('기말고사'):
             if st.button('1학년'):
                 st.dataframe(pd.read_csv('result/1-2-1.csv'))
                 st.download_button('Download', 'result/1-2-1.csv')
-            elif st.button('2학년'):
+            if st.button('2학년'):
                 st.dataframe(pd.read_csv('result/1-2-2.csv'))
                 st.download_button('Download', 'result/1-2-2.csv')
-            elif st.button('3학년'):
+            if st.button('3학년'):
                 st.dataframe(pd.read_csv('result/1-2-3.csv'))
                 st.download_button('Download', 'result/1-2-3.csv')
-    elif st.button('2학기'):
+    if st.button('2학기'):
         if st.button('중간고사'):
             if st.button('1학년'):
                 st.dataframe(pd.read_csv('result/2-1-1.csv'))
                 st.download_button('Download', 'result/2-1-1.csv')
-            elif st.button('2학년'):
+            if st.button('2학년'):
                 st.dataframe(pd.read_csv('result/2-1-2.csv'))
                 st.download_button('Download', 'result/2-1-2.csv')
-            elif st.button('3학년'):
+            if st.button('3학년'):
                 st.dataframe(pd.read_csv('result/2-1-3.csv'))
                 st.download_button('Download', 'result/2-1-3.csv')
     st.subheader('')
