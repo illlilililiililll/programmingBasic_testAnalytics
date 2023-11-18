@@ -26,7 +26,7 @@ except FileNotFoundError:
 st.title('2023 하나고등학교 시험 통계분석')
 tab1, tab2, tab3 = st.tabs(['Count', 'Score', 'Data'])
 with tab1:
-    if not df:
+    if df == None:
         st.error('해당 데이터가 존재하지 않습니다')
     else:
         def make_autopct(values, total):
@@ -68,7 +68,7 @@ with tab1:
         st.pyplot(plt)
 
 with tab2:
-    if not df:
+    if df == None:
         st.error('해당 데이터가 존재하지 않습니다')
     else:
         def make_autopct_score(values):
