@@ -140,3 +140,7 @@ with tab3:
             elif st.button('3학년'):
                 st.dataframe(pd.read_csv('result/2-1-3.csv'))
                 st.download_button('Download', 'result/2-1-3.csv')
+    st.subheader()
+    if st.button('데이터 통계분석'):
+        st.download_button('Download', 'testSort_csv.py')
+        st.download_button('1st Final', 'testSort_final.py')
