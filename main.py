@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib.font_manager as fm
 
-path = 'hana/programming/test/st/fonts/font.ttf'
+path = 'fonts/font.ttf'
 fm.fontManager.addfont(path)
 plt.rc('font', family=fm.FontProperties(fname=path).get_name())
 
