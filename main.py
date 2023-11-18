@@ -141,5 +141,21 @@ with tab3:
                 st.download_button('Download', 'result/2-1-3.csv')
     st.subheader('')
     if st.button('데이터 통계분석'):
-        st.download_button('Download', 'testSort_csv.py')
-        st.download_button('1st Final', 'testSort_final.py')
+        with open("testsort_csv.py", "rb") as file:
+            file_contents = file.read()
+            st.download_button(
+                label="Download Python script",
+                data=file_contents,
+                file_name="testSort_csv.py",
+                mime="text/plain"
+            )
+
+        with open("testsort_final.py", "rb") as file:
+            file_contents = file.read()
+            st.download_button(
+                label="1st Final Python script",
+                data=file_contents,
+                file_name="testSort_final.py",
+                mime="text/plain"
+            )
+            
