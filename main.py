@@ -38,7 +38,7 @@ with tab1:
         def explode(lists):
             return [0.07 if v == max(lists) else 0 for i, v in enumerate(lists)]
 
-        st.title(f'{semester} {type} {grade} 통계')
+        st.subheader(f'{semester} {type} {grade} 통계')
         if grade == '1':
             plt.figure(figsize=(20, 20))
         else:
@@ -81,7 +81,7 @@ with tab2:
         def explode_score(lists):
             return [0.07 if v == max(lists) else 0 for i, v in enumerate(lists)]
 
-        st.title(f'{semester} {type} {grade} 점수 통계')
+        st.subheader(f'{semester} {type} {grade} 점수 통계')
         if grade == '1':
             plt.figure(figsize=(20, 20))
         else:
@@ -139,7 +139,7 @@ with tab3:
             elif st.button('3학년'):
                 st.dataframe(pd.read_csv('result/2-1-3.csv'))
                 st.download_button('Download', 'result/2-1-3.csv')
-    st.subheader()
+    st.subheader('')
     if st.button('데이터 통계분석'):
         st.download_button('Download', 'testSort_csv.py')
         st.download_button('1st Final', 'testSort_final.py')
