@@ -107,7 +107,6 @@ with tab2:
 
 with tab3:
     st.title('Dataset')
-    st.subheader()
     if st.button('1학기'):
         if st.button('중간고사'):
             if st.button('1학년'):
