@@ -27,7 +27,8 @@ st.title('2023 하나고등학교 시험 통계분석')
 tab1, tab2, tab3 = st.tabs(['Count', 'Score', 'Dataset'])
 with tab1:
     if df is None:
-        st.error('해당 데이터가 존재하지 않습니다')
+        st.write('')
+        st.error('⚠ 해당 데이터가 존재하지 않습니다')
     else:
         def make_autopct(values, total):
             def my_autopct(pct):
@@ -67,7 +68,8 @@ with tab1:
 
 with tab2:
     if df is None:
-        st.error('해당 데이터가 존재하지 않습니다')
+        st.write('')
+        st.error('⚠ 해당 데이터가 존재하지 않습니다')
     else:
         def make_autopct_score(values):
             def my_autopct(pct):
