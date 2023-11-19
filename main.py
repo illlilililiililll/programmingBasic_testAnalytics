@@ -106,31 +106,36 @@ with tab2:
         st.pyplot(plt)
 
 with tab3:
-   st.subheader('Dataset')
+   if 'active_expander' not in st.session_state:
+    st.session_state['active_expander'] = None
 
-for semester in ['1학기', '2학기']:
-    with st.expander(f'{semester}'):
+    def show_expander(label, file_path):
+        if st.session_state['active_expander'] == label:
+            with st.expander(label, expanded=True):
+                try:
+                    df = pd.read_csv(file_path)
+                    st.dataframe(df)
+                    with open(file_path, "rb") as file:
+                        st.download_button(
+                            label="Download",
+                            data=file,
+                            file_name=file_path.split('/')[-1],
+                            mime='text/csv'
+                        )
+                except FileNotFoundError:
+                    st.error(f"File not found: {file_path}")
+        else:
+            with st.expander(label):
+                pass
+
+    for semester in ['1학기', '2학기']:
         for exam in ['중간고사', '기말고사']:
-            with st.expander(f'{exam}'):
-                for grade in ['1학년', '2학년', '3학년']:
-                    with st.expander(f'{grade}'):
-                        with st.expander('Dataframe'):
-                            # Adjust the file path as per your directory structure
-                            df_path = f'result/{semester[0]}-{exam[0]}-{grade[0]}.csv'
-                            try:
-                                df = pd.read_csv(df_path)
-                                st.dataframe(df)
-                            except FileNotFoundError:
-                                st.error('File not found.')
-
-                        # Download button
-                        with open(df_path, "rb") as file:
-                            st.download_button(
-                                label="Download",
-                                data=file,
-                                file_name=df_path,
-                                mime='text/csv'
-                            )
+            for grade in ['1학년', '2학년', '3학년']:
+                label = f"{semester} - {exam} - {grade}"
+                file_path = f'result/{semester[0]}-{exam[0]}-{grade[0]}.csv'
+                if st.button(label):
+                    st.session_state['active_expander'] = label
+                show_expander(label, file_path)
                                         
     st.subheader('')
     with st.expander('데이터 통계분석'):
