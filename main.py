@@ -105,7 +105,7 @@ with tab2:
 
         st.pyplot(plt)
 
-# with tab3:
+with tab3:
 #     st.subheader('Dataset')
 #     with st.expander('1학기'):
 #         with st.expander('중간고사'):
