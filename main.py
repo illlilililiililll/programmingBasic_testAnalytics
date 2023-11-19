@@ -44,15 +44,12 @@ with tab1:
         else:
             plt.figure(figsize=(20, 54))
 
-        # 전체 차트 제목 설정
 
-        # subplot 개수 결정
         if len(df) % 3 == 0:
             plotnum = len(df)//3
         else:
             plotnum = len(df)//3 + 1
 
-        # 위 예시들과 동일
         for i in range(len(df)):
             plt.subplot(plotnum, 3, i+1)
             title = df.loc[i, 'Subject']
@@ -61,9 +58,9 @@ with tab1:
             for j in range(1, 6):
                 num = df.loc[i, str(j)]
                 data.append(int(num[:num.index('(')].strip()))
-        plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct(data, total), explode=explode(data))
-        plt.title(title + f'    {total}문제')
-        plt.subplots_adjust(top=0.9) # 전체 제목 아래에서부터 시작하도록 시작점 조정     
+            plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct(data, total), explode=explode(data))
+            plt.title(title + f'    {total}문제')
+        plt.subplots_adjust(top=0.9)
         
         st.pyplot(plt)
 
@@ -92,15 +89,14 @@ with tab2:
         else:
             plotnum = len(df)//3 + 1
 
-        # 위와 동일
         for i in range(len(df)):
             plt.subplot(plotnum, 3, i+1)
             title = df.loc[i, 'Subject']
             data = []
             for j in range(1, 6):
                 data.append(float(df.loc[i, 'Score'+str(j)]))
-        plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct_score(data), explode=explode_score(data))
-        plt.title(title + f'    {total}문제')
+            plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct_score(data), explode=explode_score(data))
+            plt.title(title + f'    {total}문제')
         plt.subplots_adjust(top=0.9)
 
         st.pyplot(plt)
