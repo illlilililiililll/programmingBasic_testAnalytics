@@ -154,14 +154,14 @@ with tab3:
         with open("testSort_csv.py", "rb") as file:
             file_contents = file.read()
             with st.echo():
-                st.write(file_contents)
+                exec(file_contents)
             st.download_button(
                 label="Download Python script",
                 data=file_contents,
                 file_name="testSort_csv.py",
                 mime="text/plain"
             )
-
+        st.subheader('')
         with open("testSort_final.py", "rb") as file:
             file_contents = file.read()
             with st.echo():
