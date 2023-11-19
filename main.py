@@ -109,10 +109,37 @@ with tab3:
     st.subheader('Dataset')
     st.subheader('')
     st.subheader('1학기')
-    space, indent = st.columns([2, 8])
+    space, indent = st.columns([1, 10])
+    
     with indent:
         st.write('중간고사')
-        col1, col2 = st.columns([2, 8])
+        col1, col2 = st.columns([1, 10])
+        with col2:
+            with st.expander('1학년'):
+                st.dataframe(pd.read_csv('result/1-1-1.csv'))
+                st.download_button('Download 1-1-1', 'result/1-1-1.csv', key='download_1-1-1')
+            with st.expander('2학년'):
+                st.dataframe(pd.read_csv('result/1-1-2.csv'))
+                st.download_button('Download 1-1-2', 'result/1-1-2.csv', key='download_1-1-2')
+            with st.expander('3학년'):
+                st.dataframe(pd.read_csv('result/1-1-3.csv'))
+                st.download_button('Download 1-1-3', 'result/1-1-3.csv', key='download_1-1-3')
+        st.write('')
+        st.write('기말고사')
+        col1, col2 = st.columns([1, 10])
+        with col2:
+            with st.expander('1학년'):
+                st.dataframe(pd.read_csv('result/1-2-1.csv'))
+                st.download_button('Download 1-2-1', 'result/1-2-1.csv', key='download_1-2-1')
+            with st.expander('2학년'):
+                st.dataframe(pd.read_csv('result/1-2-2.csv'))
+                st.download_button('Download 1-2-2', 'result/1-2-2.csv', key='download_1-2-2')
+            with st.expander('3학년'):
+                st.dataframe(pd.read_csv('result/1-2-3.csv'))
+                st.download_button('Download 1-2-3', 'result/1-2-3.csv', key='download_1-2-3')
+    with indent:
+        st.write('중간고사')
+        col1, col2 = st.columns([1, 10])
         with col2:
             with st.expander('1학년'):
                 st.dataframe(pd.read_csv('result/1-1-1.csv'))
@@ -125,7 +152,7 @@ with tab3:
                 st.download_button('Download', 'result/1-1-3.csv')
         st.write('')
         st.write('기말고사')
-        col1, col2 = st.columns([2, 8])
+        col1, col2 = st.columns([1, 10])
         with col2:
             with st.expander('1학년'):
                 st.dataframe(pd.read_csv('result/1-2-1.csv'))
@@ -138,10 +165,10 @@ with tab3:
                 st.download_button('Download', 'result/1-2-3.csv')
         st.subheader('')
         st.subheader('2학기')
-        space, indent = st.columns([2, 8])
+        space, indent = st.columns([1, 10])
         with indent:
             st.write('중간고사')
-            col1, col2 = st.columns([2, 8])
+            col1, col2 = st.columns([1, 10])
             with col2:
                 with st.expander('1학년'):
                     st.dataframe(pd.read_csv('result/2-1-1.csv'))
