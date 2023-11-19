@@ -153,6 +153,8 @@ with tab3:
     with st.expander('데이터 통계분석'):
         with open("testSort_csv.py", "rb") as file:
             file_contents = file.read()
+            with st.echo():
+                st.write(file_contents)
             st.download_button(
                 label="Download Python script",
                 data=file_contents,
@@ -162,6 +164,8 @@ with tab3:
 
         with open("testSort_final.py", "rb") as file:
             file_contents = file.read()
+            with st.echo():
+                st.write(file_contents)
             st.download_button(
                 label="1st Final Python script",
                 data=file_contents,
