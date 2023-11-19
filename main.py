@@ -39,17 +39,18 @@ with tab1:
             return [0.07 if v == max(lists) else 0 for i, v in enumerate(lists)]
 
         st.subheader(f'{semester} {type} {grade} 통계')
-        if grade == '1':
-            plt.figure(figsize=(20, 20))
-        else:
-            plt.figure(figsize=(20, 54))
-
-
+        st.write('')
+        
         if len(df) % 3 == 0:
             plotnum = len(df)//3
         else:
             plotnum = len(df)//3 + 1
-
+        
+        if grade == '1':
+            plt.figure(figsize=(20, 20))
+        else:
+            plt.figure(figsize=(20, round(plotnum/3)*20))
+        
         for i in range(len(df)):
             plt.subplot(plotnum, 3, i+1)
             title = df.loc[i, 'Subject']
@@ -79,15 +80,17 @@ with tab2:
             return [0.07 if v == max(lists) else 0 for i, v in enumerate(lists)]
 
         st.subheader(f'{semester} {type} {grade} 점수 통계')
-        if grade == '1':
-            plt.figure(figsize=(20, 20))
-        else:
-            plt.figure(figsize=(20, 54))
+        st.write('')
 
         if len(df) % 3 == 0:
             plotnum = len(df)//3
         else:
             plotnum = len(df)//3 + 1
+
+        if grade == '1':
+            plt.figure(figsize=(20, 20))
+        else:
+            plt.figure(figsize=(20, round(plotnum/3)*20))
 
         for i in range(len(df)):
             plt.subplot(plotnum, 3, i+1)
