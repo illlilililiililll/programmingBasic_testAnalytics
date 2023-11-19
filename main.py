@@ -148,7 +148,7 @@ with tab3:
     space, indent = st.columns([1, 20])
     with indent:
         with st.expander('Python Script'):
-            with open("testSort.py", "rb") as file:
+            with open("testSort_csv.py", "rb") as file:
                 file_contents = file.read()
                 st.code(file_contents, language='python')
                 st.download_button(
