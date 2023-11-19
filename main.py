@@ -106,37 +106,94 @@ with tab2:
         st.pyplot(plt)
 
 with tab3:
-   if 'active_expander' not in st.session_state:
-    st.session_state['active_expander'] = None
-
-    def show_expander(label, file_path):
-        if st.session_state['active_expander'] == label:
-            with st.expander(label, expanded=True):
-                try:
-                    df = pd.read_csv(file_path)
-                    st.dataframe(df)
-                    with open(file_path, "rb") as file:
-                        st.download_button(
-                            label="Download",
-                            data=file,
-                            file_name=file_path.split('/')[-1],
-                            mime='text/csv'
-                        )
-                except FileNotFoundError:
-                    st.error(f"File not found: {file_path}")
-        else:
-            with st.expander(label):
-                pass
-
-    for semester in ['1학기', '2학기']:
-        for exam in ['중간고사', '기말고사']:
-            for grade in ['1학년', '2학년', '3학년']:
-                label = f"{semester} - {exam} - {grade}"
-                file_path = f'result/{semester[0]}-{exam[0]}-{grade[0]}.csv'
-                if st.button(label):
-                    st.session_state['active_expander'] = label
-                show_expander(label, file_path)
-                                        
+    st.subheader('Dataset')
+    st.subheader('')
+    st.subheader('1학기')
+    space, indent = st.columns([2, 8])
+    with indent:
+        st.write('중간고사')
+        col1, col2 = st.columns([2, 8])
+        with col2:
+            with st.expander('1학년'):
+                st.dataframe(pd.read_csv('result/1-1-1.csv'))
+                st.download_button('Download', 'result/1-1-1.csv')
+            with st.expander('2학년'):
+                st.dataframe(pd.read_csv('result/1-1-2.csv'))
+                st.download_button('Download', 'result/1-1-2.csv')
+            with st.expander('3학년'):
+                st.dataframe(pd.read_csv('result/1-1-3.csv'))
+                st.download_button('Download', 'result/1-1-3.csv')
+        st.write('')
+        st.write('기말고사')
+        col1, col2 = st.columns([2, 8])
+        with col2:
+            with st.expander('1학년'):
+                st.dataframe(pd.read_csv('result/1-2-1.csv'))
+                st.download_button('Download', 'result/1-2-1.csv')
+            with st.expander('2학년'):
+                st.dataframe(pd.read_csv('result/1-2-2.csv'))
+                st.download_button('Download', 'result/1-2-2.csv')
+            with st.expander('3학년'):
+                st.dataframe(pd.read_csv('result/1-2-3.csv'))
+                st.download_button('Download', 'result/1-2-3.csv')
+        st.subheader('')
+        st.subheader('2학기')
+        space, indent = st.columns([2, 8])
+        with indent:
+            st.write('중간고사')
+            col1, col2 = st.columns([2, 8])
+            with col2:
+                with st.expander('1학년'):
+                    st.dataframe(pd.read_csv('result/2-1-1.csv'))
+                    st.download_button('Download', 'result/2-1-1.csv')
+                with st.expander('2학년'):
+                    st.dataframe(pd.read_csv('result/2-1-2.csv'))
+                    st.download_button('Download', 'result/2-1-2.csv')
+                with st.expander('3학년'):
+                    st.dataframe(pd.read_csv('result/2-1-3.csv'))
+                    st.download_button('Download', 'result/2-1-3.csv')
+    # with st.expander('1학기'):
+    #     with st.expander('중간고사'):
+    #         with st.expander('1학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/1-1-1.csv'))
+    #             st.download_button('Download', 'result/1-1-1.csv')
+    #         with st.expander('2학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/1-1-2.csv'))
+    #             st.download_button('Download', 'result/1-1-2.csv')
+    #         with st.expander('3학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/1-1-3.csv'))
+    #             st.download_button('Download', 'result/1-1-3.csv')
+    #     with st.expander('기말고사'):
+    #         with st.expander('1학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/1-2-1.csv'))
+    #             st.download_button('Download', 'result/1-2-1.csv')
+    #         with st.expander('2학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/1-2-2.csv'))
+    #             st.download_button('Download', 'result/1-2-2.csv')
+    #         with st.expander('3학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/1-2-3.csv'))
+    #             st.download_button('Download', 'result/1-2-3.csv')
+    # with st.expander('2학기'):
+    #     with st.expander('중간고사'):
+    #         with st.expander('1학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/2-1-1.csv'))
+    #             st.download_button('Download', 'result/2-1-1.csv')
+    #         with st.expander('2학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/2-1-2.csv'))
+    #             st.download_button('Download', 'result/2-1-2.csv')
+    #         with st.expander('3학년'):
+    #             with st.expander('Dataframe'):
+    #                 st.dataframe(pd.read_csv('result/2-1-3.csv'))
+    #             st.download_button('Download', 'result/2-1-3.csv')
+            
     st.subheader('')
     with st.expander('데이터 통계분석'):
         with open("testSort_csv.py", "rb") as file:
