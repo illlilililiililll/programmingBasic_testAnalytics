@@ -144,12 +144,14 @@ with tab3:
                 st.dataframe(pd.read_csv('result/2-1-3.csv'))                
             
     st.title('')
-    st.subheader('데이터 분석 코드')
+    st.subheader('Data Analysis')
     space, indent = st.columns([1, 20])
     with indent:
         with st.expander('Python Script'):
             with open("testSort_csv.py", "rb") as file:
                 file_contents = file.read()
+                file_contents_str = file_contents.decode("utf-8")
+                st.code(file_contents_str, language='python')
                 st.code(file_contents, language='python')
                 st.download_button(
                     label="Download Python script",
@@ -160,6 +162,8 @@ with tab3:
         with st.expander('1st Semester Final Python Script'):
             with open("testSort_final.py", "rb") as file:
                 file_contents = file.read()
+                file_contents_str = file_contents.decode("utf-8")
+                st.code(file_contents_str, language='python')
                 st.code(file_contents, language='python')
                 st.download_button(
                     label="Download Python script",
