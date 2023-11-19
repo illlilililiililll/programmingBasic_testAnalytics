@@ -35,10 +35,7 @@ with tab1:
                 val = int(round(pct*total/100.0))
                 return '{v:d}문제 ({p:.2f}%)'.format(p=pct, v=val)
             return my_autopct
-
-        def explode(lists):
-            return [0.07 if v == max(lists) else 0 for i, v in enumerate(lists)]
-
+        
         st.subheader(f'{semester} {type} {grade} 통계')
         st.write('')
         
@@ -60,7 +57,7 @@ with tab1:
             for j in range(1, 6):
                 num = df.loc[i, str(j)]
                 data.append(int(num[:num.index('(')].strip()))
-            plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct(data, total), explode=explode(data))
+            plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct(data, total))
             plt.title(title + f'    {total}문제')
         plt.subplots_adjust(top=0.9)
         
@@ -77,9 +74,6 @@ with tab2:
                 val = pct*total/100.0
                 return '{v:.1f}점 ({p:.2f}%)'.format(p=pct, v=val)
             return my_autopct
-
-        def explode_score(lists):
-            return [0.07 if v == max(lists) else 0 for i, v in enumerate(lists)]
 
         st.subheader(f'{semester} {type} {grade} 점수 통계')
         st.write('')
@@ -100,7 +94,7 @@ with tab2:
             data = []
             for j in range(1, 6):
                 data.append(float(df.loc[i, 'Score'+str(j)]))
-            plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct_score(data), explode=explode_score(data))
+            plt.pie(data, labels=[str(k)+'번' for k in range(1, 6)], wedgeprops=wedgeprops, colors=colors, autopct=make_autopct_score(data))
             plt.title(title + f'    {total}문제')
         plt.subplots_adjust(top=0.9)
 
