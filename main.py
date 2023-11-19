@@ -143,27 +143,27 @@ with tab3:
             with st.expander('3학년'):
                 st.dataframe(pd.read_csv('result/2-1-3.csv'))                
             
-    st.subheader('')
-    with st.expander('데이터 통계분석'):
-        with open("testSort_csv.py", "rb") as file:
-            file_contents = file.read()
-            # with st.echo():
-                # exec(file_contents)
-            st.download_button(
-                label="Download Python script",
-                data=file_contents,
-                file_name="testSort_csv.py",
-                mime="text/plain"
+    st.title('')
+    st.subheader('데이터 분석 코드')
+    space, indent = st.columns([1, 20])
+    with indent:
+        with st.expander('Python Script'):
+            with open("testSort.py", "rb") as file:
+                file_contents = file.read()
+                st.code(file_contents, language='python')
+                st.download_button(
+                    label="Download Python script",
+                    data=file_contents,
+                    file_name="testSort.py",
+                    mime="text/plain"
             )
-        st.subheader('')
-        with open("testSort_final.py", "rb") as file:
-            file_contents = file.read()
-            # with st.echo():
-                # exec(file_contents)
-            st.download_button(
-                label="1st Final Python script",
-                data=file_contents,
-                file_name="testSort_final.py",
-                mime="text/plain"
+        with st.expander('1st Semester Final Python Script'):
+            with open("testSort_final.py", "rb") as file:
+                file_contents = file.read()
+                st.code(file_contents, language='python')
+                st.download_button(
+                    label="Download Python script",
+                    data=file_contents,
+                    file_name="testSort_final.py",
+                    mime="text/plain"
             )
-            
