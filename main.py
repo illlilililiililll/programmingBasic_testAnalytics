@@ -110,7 +110,7 @@ with tab3:
     space, indent = st.columns([1, 20])
     
     with indent:
-        st.markdown('#### 중간고사')
+        st.markdown('### 중간고사')
         col1, col2 = st.columns([1, 20])
         with col2:
             with st.expander('1학년'):
@@ -120,7 +120,7 @@ with tab3:
             with st.expander('3학년'):
                 st.dataframe(pd.read_csv('result/1-1-3.csv'))
         st.write('')
-        st.markdown('#### 기말고사')
+        st.markdown('### 기말고사')
         col1, col2 = st.columns([1, 20])
         with col2:
             with st.expander('1학년'):
@@ -133,7 +133,7 @@ with tab3:
     st.subheader('2학기')
     space, indent = st.columns([1, 20])
     with indent:
-        st.markdown('#### 중간고사')
+        st.markdown('### 중간고사')
         col1, col2 = st.columns([1, 20])
         with col2:
             with st.expander('1학년'):
@@ -152,7 +152,6 @@ with tab3:
                 file_contents = file.read()
                 file_contents_str = file_contents.decode("utf-8")
                 st.code(file_contents_str, language='python')
-                st.code(file_contents, language='python')
                 st.download_button(
                     label="Download Python script",
                     data=file_contents,
@@ -164,7 +163,6 @@ with tab3:
                 file_contents = file.read()
                 file_contents_str = file_contents.decode("utf-8")
                 st.code(file_contents_str, language='python')
-                st.code(file_contents, language='python')
                 st.download_button(
                     label="Download Python script",
                     data=file_contents,
