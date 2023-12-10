@@ -62,6 +62,7 @@ with tab1:
         plt.subplots_adjust(top=0.9)
         
         st.pyplot(plt)
+        plt.close()
 
 with tab2:
     if df is None:
@@ -99,6 +100,7 @@ with tab2:
         plt.subplots_adjust(top=0.9)
 
         st.pyplot(plt)
+        plt.close()
 
 with tab3:
     st.subheader('1학기')
